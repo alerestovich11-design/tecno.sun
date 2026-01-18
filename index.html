@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tecno.Sun</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS PROPIO -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <h1>pepe</h1>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <img src="./img/logo.jpg" alt="logo tecno sun" class="logo">
+    <h1 class="titulo">Tecno.Sun</h1>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">INICIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="./pages/productos.html">PRODUCTOS</a></li>
+                <li class="nav-item"><a class="nav-link" href="./pages/contacto.html">CONTACTO</a></li>
+                <li class="nav-item"><a class="nav-link" href="./pages/ayuda.html">AYUDA</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./carrito.html">
+                        🛒 CARRITO (<span id="contador-carrito">0</span>)
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main class="container my-5">
+
+    <!-- Bienvenida -->
+    <section class="mb-5">
+        <h2>Bienvenidos</h2>
+        <p>
+            Somos Tecno.Sun, una tienda especializada en accesorios para celulares.
+            Ofrecemos productos de calidad que combinan protección, estilo y funcionalidad,
+            pensados para el uso diario.
+        </p>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="mb-5">
+        <h2>Productos destacados</h2>
+
+        <div class="destacados-container">
+
+            <div class="destacado">
+                <img src="./img/antishock.jpg" alt="Funda antishock">
+                <h3>Funda Antishock</h3>
+                <p>Protección resistente para tu celular.</p>
+                <p><strong>$4.500</strong></p>
+                <a href="./pages/productos.html">Ver más</a>
+            </div>
+
+            <div class="destacado">
+                <img src="./img/tipoC.jpg" alt="Cargador Samsung 25W Type C">
+                <h3>Cabezal 25W Type C</h3>
+                <p>Producto original con garantía.</p>
+                <p><strong>$48.000</strong></p>
+                <a href="./pages/productos.html">Ver más</a>
+            </div>
+
+            <div class="destacado">
+                <img src="./img/iphone.jpg" alt="Cargador iPhone 5W">
+                <h3>Cabezal iPhone 5W</h3>
+                <p>Producto certificado.</p>
+                <p><strong>$12.000</strong></p>
+                <a href="./pages/productos.html">Ver más</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section class="mb-5">
+        <h2 class="mb-4 text-center">🔥 Ofertas por tiempo limitado</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="./img/silicone.jpg" class="card-img-top" alt="Funda Silicone">
+                    <div class="card-body">
+                        <h5 class="card-title">Funda Silicone</h5>
+                        <p class="card-text">20% OFF por tiempo limitado</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="./img/vidrio9d.jpg" class="card-img-top" alt="Vidrio 9D">
+                    <div class="card-body">
+                        <h5 class="card-title">Vidrio Templado 9D</h5>
+                        <p class="card-text">Promo 2x1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <img src="./img/tipoC.jpg" class="card-img-top" alt="Cable Tipo C">
+                    <div class="card-body">
+                        <h5 class="card-title">Cable Tipo C</h5>
+                        <p class="card-text">
+                            15% de descuento abonando con transferencia
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comentarios -->
+    <section>
+        <h2 class="titulo-izquierda">Comentarios</h2>
+        <p>⭐ Muy buena atención y precios accesibles.</p>
+        <p>⭐ Atención rápida y productos de calidad.</p>
+        <p>⭐ Me encantó la funda, excelente protección.</p>
+    </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-links">
+        <a href="https://www.instagram.com/tecno.sun/" target="_blank" class="ig-link">Instagram</a>
+        <span class="separator">|</span>
+        <a href="https://wa.me/543493525259" target="_blank" class="ig-link">WhatsApp</a>
+    </div>
+    <p>© 2025 Tecno.Sun - Sitio oficial</p>
+</footer>
+
+<!-- ===== JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function actualizarContador() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const contador = document.getElementById("contador-carrito");
+    if (contador) {
+        contador.textContent = carrito.length;
+    }
+}
+actualizarContador();
+</script>
+
 </body>
 </html>
+
