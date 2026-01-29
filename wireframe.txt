@@ -1,0 +1,23 @@
+------------------------------------------------------------
+|                   (logo + título)                        |
+------------------------------------------------------------
+|          INICIO      PRODUCTOS      CONTACTO             |
+------------------------------------------------------------
+|                     Bienvenidos                          |
+|  Texto de presentación                                   |
+------------------------------------------------------------
+|                 Productos Destacados                     |
+|  	      [IMAGEN]     [IMAGEN]    [IMAGEN]            |
+|   	       Nombre       Nombre      Nombre             |
+|           Descripción  Descripción  Descripción          |
+|   	       Precio       Precio      Precio             |
+| 	     [COMPRAR]     [COMPRAR]   [COMPRAR]           |
+------------------------------------------------------------
+|   Comentarios                                            |
+|   “comentario 1”                                         | 
+|   “comentario 2”                                         | 
+|   “comentario 3”                                         |
+------------------------------------------------------------
+|                     REDES | REDES                        |
+|               HUELLA DE AGUA DEL SITIO                   |
+------------------------------------------------------------
