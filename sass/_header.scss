@@ -1,26 +1,30 @@
 header {
     background-color: $color-primario;
-    padding: $padding-general;
-    text-align: center;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
 }
 
 .logo {
-    width: 110px;
-    vertical-align: middle;
+    width: 70px;
+    border-radius: 10px;
 }
 
 .titulo {
-    margin-left: 10px;
-    color: $color-secundario;
-    vertical-align: middle;
-    display: inline-block;
+    margin: 0;
 
-&::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: $color-secundario;
-    margin: 10px auto;
+    &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: $color-secundario;
+        margin: 6px auto;
+    }
 }
-}
+

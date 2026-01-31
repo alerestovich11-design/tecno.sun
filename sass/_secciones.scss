@@ -1,0 +1,18 @@
+section {
+@include card;
+margin: 20px;
+}
+
+h2 {
+    color: $color-secundario;
+    text-align: center;
+}
+
+h3 {
+    color: $color-primario;
+}
+
+.titulo-izquierda,
+.titulo-contacto {
+    text-align: left;
+}
