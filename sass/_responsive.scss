@@ -1,0 +1,16 @@
+@include responsive(600px) {
+
+.destacado,
+.categoria {
+    width: 90%;
+}
+
+nav ul li {
+    display: block;
+    margin: 10px 0;
+}
+
+.productos-container {
+    grid-template-columns: 1fr;
+}
+}

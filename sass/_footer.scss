@@ -1,0 +1,27 @@
+footer {
+    background-color: $color-primario;
+    color: $color-texto;
+    text-align: center;
+    padding: $padding-general;
+}
+
+.footer-links {
+    @include flex-center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.ig-link {
+    color: $color-secundario;
+    text-decoration: none;
+    font-weight: bold;
+
+&:hover {
+    color: $color-texto;
+}
+}
+
+.separator {
+    color: $color-texto;
+    font-size: 18px;
+}

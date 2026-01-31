@@ -1,0 +1,33 @@
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+
+  @include transition(transform);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+button,
+.btn {
+    padding: 8px 15px;
+    background-color: $color-secundario;
+    color: $color-texto;
+    border: none;
+    border-radius: $radio-borde;
+    cursor: pointer;
+
+@include transition(background-color);
+
+&:hover {
+    background-color: $color-primario;
+}
+}

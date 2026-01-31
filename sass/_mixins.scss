@@ -1,0 +1,15 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($propiedad) {
+  transition: $propiedad 0.3s ease;
+}
+
+@mixin responsive($medida) {
+  @media (max-width: $medida) {
+    @content;
+  }
+}

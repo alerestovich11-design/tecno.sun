@@ -1,0 +1,26 @@
+header {
+    background-color: $color-primario;
+    padding: $padding-general;
+    text-align: center;
+}
+
+.logo {
+    width: 110px;
+    vertical-align: middle;
+}
+
+.titulo {
+    margin-left: 10px;
+    color: $color-secundario;
+    vertical-align: middle;
+    display: inline-block;
+
+&::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: $color-secundario;
+    margin: 10px auto;
+}
+}
