@@ -1,8 +1,10 @@
-/* ================= HEADER ================= */
+/* ======================================================
+   HEADER
+====================================================== */
 
 .main-header {
     width: 100%;
-    background: linear-gradient(135deg, #0b0f2d, #05081a);
+    background: linear-gradient(135deg, $tecno-bg, $tecno-dark);
     padding: 2rem 0;
 }
 
@@ -11,59 +13,77 @@
 }
 
 .title {
-    color: #6c63ff;
+    color: $tecno-primary;
     font-weight: 700;
     font-size: 2.2rem;
 }
+
+
+/* ================= NAV con línea animada ================= */
 
 .nav-menu {
     display: flex;
     justify-content: center;
     gap: 2rem;
 
-a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .2s;
+    a {
+        position: relative;
+        color: $white;
+        text-decoration: none;
+        font-weight: 600;
+        padding-bottom: 4px;
+        transition: color .25s ease;
 
-    &:hover {
-        color: #6c63ff;
-        transform: translateY(-2px);
-    }
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: $tecno-primary;
+            transition: width .3s ease;
+        }
+
+        &:hover {
+            color: $tecno-primary;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
     }
 
-@include responsive($mobile) {
-    flex-direction: column;
-    gap: 1rem;
+    @include responsive($mobile) {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
 
-/* ================= FOOTER ================= */
+/* ======================================================
+   FOOTER
+====================================================== */
 
 .main-footer {
-    background: #05081a;
-    color: white;
+    background: $tecno-dark;
+    color: $white;
     text-align: center;
     padding: 2rem 0;
 
-a {
-    color: #6c63ff;
-    text-decoration: none;
+    a {
+        color: $tecno-primary;
 
-    &:hover {
-        text-decoration: underline;
-    }
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
-.main-header,
-.main-footer {
-    width: 100%;
-}
 
-/* ================= MAIN ================= */
+/* ======================================================
+   MAIN
+====================================================== */
 
 main {
     text-align: center;
@@ -74,48 +94,20 @@ main section {
     margin: 0 auto 3rem auto;
 }
 
-/* títulos */
+
+/* ======================================================
+   TITULOS
+====================================================== */
+
 h2, h3 {
     color: $tecno-primary;
     font-weight: 700;
 }
 
-.destacado {
-    background: $white;
-    border-radius: $radius;
-    box-shadow: $sombra;
-    padding: 1rem;
-}
 
-/* ================= PRODUCTOS GRID ================= */
-
-.destacado {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; // empuja botones abajo
-    height: 100%;
-
-    background: white;
-    border-radius: $radius;
-    box-shadow: $sombra;
-}
-
-.producto-img {
-    height: 180px;
-    object-fit: contain;
-}
-
-/* bloque de info */
-.destacado p {
-    margin-bottom: .4rem;
-}
-
-/* botones siempre alineados abajo */
-.destacado .btn {
-    width: 100%;
-}
-
-/* ================= DESTACADOS (INDEX) ================= */
+/* ======================================================
+   GRID DESTACADOS
+====================================================== */
 
 .destacados-container {
     display: grid;
@@ -124,81 +116,88 @@ h2, h3 {
     margin-top: 2rem;
 }
 
-/* mobile */
 @media (max-width: $tablet) {
     .destacados-container {
         grid-template-columns: 1fr;
     }
 }
 
+
+/* ======================================================
+   TARJETAS / PRODUCTOS (base)
+====================================================== */
+
 .destacado {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-
     padding: 1.5rem;
+
     background: $white;
     border-radius: $radius;
     box-shadow: $sombra;
     text-align: center;
+
+    /* hover elevación */
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    }
 }
 
-/* imagen */
+
+/* ======================================================
+   IMÁGENES (zoom)
+====================================================== */
+
+.producto-img,
 .destacado img {
     height: 180px;
     object-fit: contain;
     margin-bottom: 1rem;
-}
-
-/* botón */
-.destacado a {
-    margin-top: auto;
-}
-
-/* ================= ANIMACIONES SOLO INDEX ================= */
-
-/* tarjetas index */
-.destacados-section .destacado,
-.ofertas-section .card {
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* hover elevación */
-.destacados-section .destacado:hover,
-.ofertas-section .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,.15);
-}
-
-/* zoom imagen */
-.destacados-section img,
-.ofertas-section img {
     transition: transform .3s ease;
 }
 
-.destacados-section .destacado:hover img,
-.ofertas-section .card:hover img {
+.destacado:hover img {
     transform: scale(1.05);
 }
 
-/* aparición suave */
-.destacados-section .destacado,
-.ofertas-section .card {
+
+/* ======================================================
+   BOTONES / TEXTOS
+====================================================== */
+
+.destacado p {
+    margin-bottom: .4rem;
+}
+
+.destacado .btn {
+    width: 100%;
+}
+
+
+/* ======================================================
+   ANIMACIÓN ENTRADA (solo tarjetas)
+====================================================== */
+
+.destacado,
+.card {
     opacity: 0;
     transform: translateY(15px);
     animation: aparecer .6s ease forwards;
 }
 
-/* escalonado */
-.destacados-section .destacado:nth-child(1),
-.ofertas-section .card:nth-child(1) { animation-delay: .1s; }
+.destacado:nth-child(1),
+.card:nth-child(1) { animation-delay: .1s; }
 
-.destacados-section .destacado:nth-child(2),
-.ofertas-section .card:nth-child(2) { animation-delay: .2s; }
+.destacado:nth-child(2),
+.card:nth-child(2) { animation-delay: .2s; }
 
-.destacados-section .destacado:nth-child(3),
-.ofertas-section .card:nth-child(3) { animation-delay: .3s; }
+.destacado:nth-child(3),
+.card:nth-child(3) { animation-delay: .3s; }
 
 @keyframes aparecer {
     to {
