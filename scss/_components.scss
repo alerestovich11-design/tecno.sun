@@ -1,0 +1,26 @@
+.card {
+    background: white;
+    border-radius: $radius;
+    box-shadow: $sombra;
+    padding: 1rem;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+&:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+}
+
+.btn {
+    background: $color-primario;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: $radius;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+
+&:hover {
+    opacity: .85;
+    }
+}

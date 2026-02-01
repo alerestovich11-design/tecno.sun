@@ -1,0 +1,247 @@
+@charset "UTF-8";
+/* ==== colores marca Tecno.Sun ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+  color: #212529;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+  width: 100%;
+  background: linear-gradient(135deg, #0b0f2d, #05081a);
+  padding: 2rem 0;
+}
+
+.logo {
+  width: 70px;
+}
+
+.title {
+  color: #6c63ff;
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.nav-menu a:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+@media (max-width: 576px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* ================= FOOTER ================= */
+.main-footer {
+  background: #05081a;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+.main-footer a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+.main-footer a:hover {
+  text-decoration: underline;
+}
+
+.main-header,
+.main-footer {
+  width: 100%;
+}
+
+/* ================= MAIN ================= */
+main {
+  text-align: center;
+}
+
+main section {
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+}
+
+/* títulos */
+h2, h3 {
+  color: #6c63fd;
+  font-weight: 700;
+}
+
+.destacado {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+/* ================= PRODUCTOS GRID ================= */
+.destacado {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.producto-img {
+  height: 180px;
+  object-fit: contain;
+}
+
+/* bloque de info */
+.destacado p {
+  margin-bottom: 0.4rem;
+}
+
+/* botones siempre alineados abajo */
+.destacado .btn {
+  width: 100%;
+}
+
+/* ================= DESTACADOS (INDEX) ================= */
+.destacados-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .destacados-container {
+    grid-template-columns: 1fr;
+  }
+}
+.destacado {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* imagen */
+.destacado img {
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* botón */
+.destacado a {
+  margin-top: auto;
+}
+
+/* ================= ANIMACIONES SOLO INDEX ================= */
+/* tarjetas index */
+.destacados-section .destacado,
+.ofertas-section .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* hover elevación */
+.destacados-section .destacado:hover,
+.ofertas-section .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* zoom imagen */
+.destacados-section img,
+.ofertas-section img {
+  transition: transform 0.3s ease;
+}
+
+.destacados-section .destacado:hover img,
+.ofertas-section .card:hover img {
+  transform: scale(1.05);
+}
+
+/* aparición suave */
+.destacados-section .destacado,
+.ofertas-section .card {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: aparecer 0.6s ease forwards;
+}
+
+/* escalonado */
+.destacados-section .destacado:nth-child(1),
+.ofertas-section .card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.destacados-section .destacado:nth-child(2),
+.ofertas-section .card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.destacados-section .destacado:nth-child(3),
+.ofertas-section .card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+  background: #0d6efd;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn:hover {
+  opacity: 0.85;
+}
+
+/*# sourceMappingURL=main.css.map */
