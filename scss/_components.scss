@@ -24,3 +24,27 @@
     opacity: .85;
     }
 }
+
+/* ===== MENÚ Y NAVEGACIÓN ===== */
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+&:hover {
+    opacity: 0.8;
+    }
+}
+
+/* Ajustes del navbar de Bootstrap */
+
+.navbar {
+    padding-left: 0;
+}
+
+
+
+
+
+

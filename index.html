@@ -23,42 +23,30 @@
             <h1 class="title m-0">Tecno.Sun</h1>
         </div>
 
-        <nav class="nav-menu mt-3">
+<nav class="navbar navbar-expand-md mt-3">
+
+    <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+        <div class="nav-menu d-flex gap-3">
             <a href="index.html">Inicio</a>
             <a href="pages/productos.html">Productos</a>
             <a href="pages/contacto.html">Contacto</a>
             <a href="pages/ayuda.html">Ayuda</a>
-            <a href="pages/carrito.html">🛒 Carrito (0)</a>
-        </nav>
+            <a href="pages/carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </div>
+    </div>
+
+</nav>
+
 
     </div>
 </header>
 
 
-<!-- ===== NAV ===== -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link active" href="#">INICIO</a></li>
-                <li class="nav-item"><a class="nav-link" href="./pages/productos.html">PRODUCTOS</a></li>
-                <li class="nav-item"><a class="nav-link" href="./pages/contacto.html">CONTACTO</a></li>
-                <li class="nav-item"><a class="nav-link" href="./pages/ayuda.html">AYUDA</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./carrito.html">
-                        🛒 CARRITO (<span id="contador-carrito">0</span>)
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-</nav>
 
 <!-- ===== MAIN ===== -->
 <main class="container my-5">
