@@ -18,7 +18,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ================= HEADER ================= */
+/* ======HEADER====== */
 .main-header {
   width: 100%;
   background: linear-gradient(135deg, #0b0f2d, #05081a);
@@ -30,25 +30,40 @@ html, body {
 }
 
 .title {
-  color: #6c63ff;
+  color: #6c63fd;
   font-weight: 700;
   font-size: 2.2rem;
 }
 
+/* ======NAV con línea animada====== */
 .nav-menu {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 .nav-menu a {
-  color: white;
+  position: relative;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s;
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #6c63fd;
+  transition: width 0.3s ease;
 }
 .nav-menu a:hover {
-  color: #6c63ff;
-  transform: translateY(-2px);
+  color: #6c63fd;
+}
+.nav-menu a:hover::after {
+  width: 100%;
 }
 @media (max-width: 576px) {
   .nav-menu {
@@ -57,27 +72,21 @@ html, body {
   }
 }
 
-/* ================= FOOTER ================= */
+/* ======FOOTER====== */
 .main-footer {
   background: #05081a;
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding: 2rem 0;
 }
 .main-footer a {
-  color: #6c63ff;
-  text-decoration: none;
+  color: #6c63fd;
 }
 .main-footer a:hover {
   text-decoration: underline;
 }
 
-.main-header,
-.main-footer {
-  width: 100%;
-}
-
-/* ================= MAIN ================= */
+/* ======MAIN====== */
 main {
   text-align: center;
 }
@@ -87,46 +96,13 @@ main section {
   margin: 0 auto 3rem auto;
 }
 
-/* títulos */
+/* ======TITULOS====== */
 h2, h3 {
   color: #6c63fd;
   font-weight: 700;
 }
 
-.destacado {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-}
-
-/* ================= PRODUCTOS GRID ================= */
-.destacado {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.producto-img {
-  height: 180px;
-  object-fit: contain;
-}
-
-/* bloque de info */
-.destacado p {
-  margin-bottom: 0.4rem;
-}
-
-/* botones siempre alineados abajo */
-.destacado .btn {
-  width: 100%;
-}
-
-/* ================= DESTACADOS (INDEX) ================= */
+/* ======GRID DESTACADOS====== */
 .destacados-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -134,12 +110,14 @@ h2, h3 {
   margin-top: 2rem;
 }
 
-/* mobile */
 @media (max-width: 768px) {
   .destacados-container {
     grid-template-columns: 1fr;
   }
 }
+/* =====================================================
+   TARJETAS / PRODUCTOS
+===================================================== */
 .destacado {
   display: flex;
   flex-direction: column;
@@ -150,70 +128,65 @@ h2, h3 {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-/* imagen */
-.destacado img {
-  height: 180px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-/* botón */
-.destacado a {
-  margin-top: auto;
-}
-
-/* ================= ANIMACIONES SOLO INDEX ================= */
-/* tarjetas index */
-.destacados-section .destacado,
-.ofertas-section .card {
+  overflow: hidden; /* necesario para zoom */
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-/* hover elevación */
-.destacados-section .destacado:hover,
-.ofertas-section .card:hover {
+.destacado:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* zoom imagen */
-.destacados-section img,
-.ofertas-section img {
-  transition: transform 0.3s ease;
+/* ======IMÁGENES (zoom limpio y universal)====== */
+.producto-img,
+.destacado img {
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
 }
 
-.destacados-section .destacado:hover img,
-.ofertas-section .card:hover img {
-  transform: scale(1.05);
+.destacado:hover img {
+  transform: scale(1.08);
 }
 
-/* aparición suave */
-.destacados-section .destacado,
-.ofertas-section .card {
+/* ======BOTONES / TEXTOS====== */
+.destacado p {
+  margin-bottom: 0.4rem;
+}
+
+.destacado .btn {
+  width: 100%;
+}
+
+/* =====================================================
+   ANIMACIÓN ENTRADA (SIN usar transform fijo)
+   → evita conflicto con el zoom
+===================================================== */
+.destacado,
+.card {
   opacity: 0;
-  transform: translateY(15px);
   animation: aparecer 0.6s ease forwards;
 }
 
-/* escalonado */
-.destacados-section .destacado:nth-child(1),
-.ofertas-section .card:nth-child(1) {
+.destacado:nth-child(1),
+.card:nth-child(1) {
   animation-delay: 0.1s;
 }
 
-.destacados-section .destacado:nth-child(2),
-.ofertas-section .card:nth-child(2) {
+.destacado:nth-child(2),
+.card:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.destacados-section .destacado:nth-child(3),
-.ofertas-section .card:nth-child(3) {
+.destacado:nth-child(3),
+.card:nth-child(3) {
   animation-delay: 0.3s;
 }
 
 @keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -242,6 +215,21 @@ h2, h3 {
 }
 .btn:hover {
   opacity: 0.85;
+}
+
+/* ===== MENÚ Y NAVEGACIÓN ===== */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-menu a:hover {
+  opacity: 0.8;
+}
+
+/* Ajustes del navbar de Bootstrap */
+.navbar {
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

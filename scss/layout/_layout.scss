@@ -16,6 +16,7 @@
     font-size: 2.2rem;
 }
 
+
 /* ======NAV con línea animada====== */
 
 .nav-menu {
@@ -57,6 +58,7 @@
     }
 }
 
+
 /* ======FOOTER====== */
 
 .main-footer {
@@ -74,6 +76,7 @@
     }
 }
 
+
 /* ======MAIN====== */
 
 main {
@@ -85,12 +88,14 @@ main section {
     margin: 0 auto 3rem auto;
 }
 
+
 /* ======TITULOS====== */
 
 h2, h3 {
     color: $tecno-primary;
     font-weight: 700;
 }
+
 
 /* ======GRID DESTACADOS====== */
 
@@ -107,7 +112,10 @@ h2, h3 {
     }
 }
 
-/* ======TARJETAS / PRODUCTOS (base)====== */
+
+/* =====================================================
+   TARJETAS / PRODUCTOS
+===================================================== */
 
 .destacado {
     display: flex;
@@ -121,7 +129,8 @@ h2, h3 {
     box-shadow: $sombra;
     text-align: center;
 
-    /* hover elevación */
+    overflow: hidden; /* necesario para zoom */
+
     transition: transform .25s ease, box-shadow .25s ease;
 
     &:hover {
@@ -130,19 +139,20 @@ h2, h3 {
     }
 }
 
-/* ======IMÁGENES (zoom)====== */
+
+/* ======IMÁGENES (zoom limpio y universal)====== */
 
 .producto-img,
 .destacado img {
     height: 180px;
     object-fit: contain;
-    margin-bottom: 1rem;
-    transition: transform .3s ease;
+    transition: transform .35s ease;
 }
 
 .destacado:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
+
 
 /* ======BOTONES / TEXTOS====== */
 
@@ -154,12 +164,15 @@ h2, h3 {
     width: 100%;
 }
 
-/* ======ANIMACIÓN ENTRADA (solo tarjetas)====== */
+
+/* =====================================================
+   ANIMACIÓN ENTRADA (SIN usar transform fijo)
+   → evita conflicto con el zoom
+===================================================== */
 
 .destacado,
 .card {
     opacity: 0;
-    transform: translateY(15px);
     animation: aparecer .6s ease forwards;
 }
 
@@ -172,11 +185,17 @@ h2, h3 {
 .destacado:nth-child(3),
 .card:nth-child(3) { animation-delay: .3s; }
 
+
 @keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 
 
