@@ -18,7 +18,9 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ===== HEADER ===== */
+/* =====================================================
+   HEADER
+===================================================== */
 .main-header {
   width: 100%;
   background: linear-gradient(135deg, #0b0f2d, #05081a);
@@ -32,9 +34,12 @@ html, body {
 .title {
   color: #6c63fd;
   font-weight: 700;
+  font-size: 2.2rem;
 }
 
-/* ===== NAV ===== */
+/* =====================================================
+   NAV + línea animada
+===================================================== */
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -46,7 +51,7 @@ html, body {
   text-decoration: none;
   font-weight: 600;
   padding-bottom: 4px;
-  transition: color 0.25s;
+  transition: color 0.25s ease;
 }
 .nav-menu a::after {
   content: "";
@@ -56,7 +61,7 @@ html, body {
   width: 0%;
   height: 2px;
   background: #6c63fd;
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 .nav-menu a:hover {
   color: #6c63fd;
@@ -64,8 +69,13 @@ html, body {
 .nav-menu a:hover::after {
   width: 100%;
 }
+@media (max-width: 576px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 
-/* link activo */
 .nav-menu a.active {
   color: #6c63fd;
 }
@@ -73,7 +83,25 @@ html, body {
   width: 100%;
 }
 
-/* ===== MAIN ===== */
+/* =====================================================
+   FOOTER
+===================================================== */
+.main-footer {
+  background: #05081a;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 0;
+}
+.main-footer a {
+  color: #6c63fd;
+}
+.main-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   MAIN GENERAL
+===================================================== */
 main {
   text-align: center;
 }
@@ -83,49 +111,120 @@ main section {
   margin: 0 auto 3rem auto;
 }
 
-/* ===== TARJETAS ===== */
-.destacado {
+/* =====================================================
+   TÍTULOS (fix Bootstrap override)
+===================================================== */
+main h2,
+main h3 {
+  color: #6c63fd;
+  font-weight: 700;
+}
+
+/* =====================================================
+   GRID DESTACADOS
+===================================================== */
+.destacados-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .destacados-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* =====================================================
+   TARJETAS / PRODUCTOS (destacado + card unificados)
+===================================================== */
+.destacado,
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   padding: 1.5rem;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.destacado:hover {
+.destacado:hover,
+.card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== ZOOM IMÁGENES ===== */
-.destacado img {
-  width: 100%;
+/* =====================================================
+   IMÁGENES (zoom universal)
+===================================================== */
+.producto-img,
+.destacado img,
+.card img {
   height: 180px;
   object-fit: contain;
   transition: transform 0.35s ease;
 }
 
-.destacado:hover img {
+.destacado:hover img,
+.card:hover img {
   transform: scale(1.08);
 }
 
-/* ===== FOOTER ===== */
-.main-footer {
-  background: #05081a;
-  color: #ffffff;
-  padding: 2rem;
+/* =====================================================
+   TEXTOS / BOTONES
+===================================================== */
+.destacado p {
+  margin-bottom: 0.4rem;
 }
 
+.destacado .btn {
+  width: 100%;
+}
+
+/* =====================================================
+   ANIMACIÓN ENTRADA (sin conflicto con zoom)
+===================================================== */
+.destacado,
+.card {
+  opacity: 0;
+  animation: aparecer 0.6s ease forwards;
+}
+
+.destacado:nth-child(1),
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.destacado:nth-child(2),
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.destacado:nth-child(3),
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
   transform: translateY(-4px);
@@ -135,15 +234,29 @@ main section {
 .btn {
   background: #0d6efd;
   color: white;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: 0.25s;
+  transition: 0.2s;
 }
 .btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+/* ===== MENÚ Y NAVEGACIÓN ===== */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-menu a:hover {
+  opacity: 0.8;
+}
+
+/* Ajustes del navbar de Bootstrap */
+.navbar {
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

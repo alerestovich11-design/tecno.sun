@@ -3,31 +3,45 @@
     border-radius: $radius;
     box-shadow: $sombra;
     padding: 1rem;
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .2s ease, box-shadow .2s ease;
 
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0,0,0,.15);
+&:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
     }
 }
-
 
 .btn {
     background: $color-primario;
     color: white;
-    padding: .6rem 1rem;
+    padding: .5rem 1rem;
     border-radius: $radius;
     border: none;
     cursor: pointer;
-    transition: .25s;
+    transition: .2s;
 
-    &:hover {
-        transform: translateY(-2px);
-        opacity: .9;
+&:hover {
+    opacity: .85;
     }
 }
 
+/* ===== MENÚ Y NAVEGACIÓN ===== */
 
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+&:hover {
+    opacity: 0.8;
+    }
+}
+
+/* Ajustes del navbar de Bootstrap */
+
+.navbar {
+    padding-left: 0;
+}
 
 
 
