@@ -6,8 +6,17 @@
 
 @mixin responsive($breakpoint) {
     @media (max-width: $breakpoint) {
-    @content;
+        @content;
     }
 }
+
+@mixin flex($justify: center, $align: center, $direction: row, $gap: 0) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
 
 

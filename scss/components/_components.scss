@@ -1,15 +1,60 @@
+/* ======CARD====== */
+
 .card {
-    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    padding: 1.5rem;
+
+    background: $white;
     border-radius: $radius;
     box-shadow: $sombra;
-    padding: 1rem;
-    transition: transform .2s ease, box-shadow .2s ease;
+    text-align: center;
+    overflow: hidden;
 
-&:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    }
+
+    img {
+        height: 180px;
+        object-fit: contain;
+        transition: transform .35s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.08);
+    }
+
+    opacity: 0;
+    animation: aparecer .6s ease forwards;
+}
+
+/* ======BOTÓN CARD====== */
+
+.card__btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: $color-primario;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: darken($color-primario, 10%);
+        transform: translateY(-2px);
     }
 }
+
+/* ======BOTÓN GENERAL====== */
 
 .btn {
     background: $color-primario;
@@ -20,30 +65,13 @@
     cursor: pointer;
     transition: .2s;
 
-&:hover {
-    opacity: .85;
+    &:hover {
+        opacity: .85;
     }
 }
 
-/* ===== MENÚ Y NAVEGACIÓN ===== */
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-
-&:hover {
-    opacity: 0.8;
-    }
-}
-
-/* Ajustes del navbar de Bootstrap */
+/* ======AJUSTE BOOTSTRAP====== */
 
 .navbar {
     padding-left: 0;
 }
-
-
-
-
-

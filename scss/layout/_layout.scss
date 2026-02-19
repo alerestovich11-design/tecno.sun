@@ -1,6 +1,4 @@
-/* =====================================================
-   HEADER
-===================================================== */
+/* ======HEADER====== */
 
 .main-header {
     width: 100%;
@@ -18,16 +16,10 @@
     font-size: 2.2rem;
 }
 
-
-
-/* =====================================================
-   NAV + línea animada
-===================================================== */
+/* ======NAV + línea animada====== */
 
 .nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    @include flex(center, center, row, 2rem);
 
     a {
         position: relative;
@@ -71,11 +63,7 @@
     }
 }
 
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ======FOOTER====== */
 
 .main-footer {
     background: $tecno-dark;
@@ -92,11 +80,7 @@
     }
 }
 
-
-
-/* =====================================================
-   MAIN GENERAL
-===================================================== */
+/* ======MAIN GENERAL====== */
 
 main {
     text-align: center;
@@ -107,11 +91,7 @@ main section {
     margin: 0 auto 3rem auto;
 }
 
-
-
-/* =====================================================
-   TÍTULOS (fix Bootstrap override)
-===================================================== */
+/* ======TÍTULOS====== */
 
 main h2,
 main h3 {
@@ -119,11 +99,7 @@ main h3 {
     font-weight: 700;
 }
 
-
-
-/* =====================================================
-   GRID DESTACADOS
-===================================================== */
+/* ======GRID DESTACADOS====== */
 
 .destacados-container {
     display: grid;
@@ -138,14 +114,9 @@ main h3 {
     }
 }
 
+/* ======DESTACADO (solo destacado, no card)====== */
 
-
-/* =====================================================
-   TARJETAS / PRODUCTOS (destacado + card unificados)
-===================================================== */
-
-.destacado,
-.card {
+.destacado {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -166,61 +137,26 @@ main h3 {
         transform: translateY(-6px);
         box-shadow: 0 10px 25px rgba(0,0,0,.15);
     }
-}
 
+    img {
+        height: 180px;
+        object-fit: contain;
+        transition: transform .35s ease;
+    }
 
+    &:hover img {
+        transform: scale(1.08);
+    }
 
-/* =====================================================
-   IMÁGENES (zoom universal)
-===================================================== */
-
-.producto-img,
-.destacado img,
-.card img {
-    height: 180px;
-    object-fit: contain;
-    transition: transform .35s ease;
-}
-
-.destacado:hover img,
-.card:hover img {
-    transform: scale(1.08);
-}
-
-
-
-/* =====================================================
-   TEXTOS / BOTONES
-===================================================== */
-
-.destacado p {
-    margin-bottom: .4rem;
-}
-
-.destacado .btn {
-    width: 100%;
-}
-
-
-
-/* =====================================================
-   ANIMACIÓN ENTRADA (sin conflicto con zoom)
-===================================================== */
-
-.destacado,
-.card {
     opacity: 0;
     animation: aparecer .6s ease forwards;
 }
 
-.destacado:nth-child(1),
-.card:nth-child(1) { animation-delay: .1s; }
+.destacado:nth-child(1) { animation-delay: .1s; }
+.destacado:nth-child(2) { animation-delay: .2s; }
+.destacado:nth-child(3) { animation-delay: .3s; }
 
-.destacado:nth-child(2),
-.card:nth-child(2) { animation-delay: .2s; }
-
-.destacado:nth-child(3),
-.card:nth-child(3) { animation-delay: .3s; }
+/* ======ANIMACIÓN====== */
 
 @keyframes aparecer {
     from {
@@ -232,7 +168,3 @@ main h3 {
         transform: translateY(0);
     }
 }
-
-
-
-
